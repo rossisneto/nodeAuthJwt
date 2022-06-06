@@ -10,6 +10,9 @@ const app = express()
 //Configurando JSON
 app.use(express.json())
 
+//Importando modelos
+const User = require('./models/User')
+
 //Conectando ao mongoDB
 const dbUser=process.env.DB_USER
 const dbPass=process.env.DB_PASS
@@ -36,6 +39,15 @@ app.post('/auth/register',async(req,res)=>{
     //Validação
     if(!name){
         return res.status(422).json({msg: 'o nome é obrigatorio'})
+    }
+    if(!email){
+        return res.status(422).json({msg: 'o email é obrigatorio'})
+    }
+    if(!pass){
+        return res.status(422).json({msg: 'a senha é obrigatorio'})
+    }   
+    if(!confpass){
+        return res.status(422).json({msg: 'confirme a senha'})
     }
 })
 

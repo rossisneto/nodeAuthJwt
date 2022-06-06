@@ -7,5 +7,8 @@ Content-Type: application/json
 
 {
     "name": "Rossi",
+    "email": "rossi.neto@gmail.com",
+    "pass": " ",
+    "confpass": " "
 
 }
